@@ -26,7 +26,7 @@ const entries = [];
       });
         crowl(next)
       } else {
-        let fileData = fs.readFileSync(next, 'UTF-8')
+        let fileData = fs.readFileSync(next)
         entries.push({
           path: relativePath,
           type: 'file',
@@ -41,7 +41,6 @@ const entries = [];
   rootPath: workspacePath,
   entries: entries
 };
-  console.log(snapshot)
   fs.writeFileSync(path.join(workspacePath,'..','snapshot.json'), JSON.stringify(snapshot, null, 2))
 }
 
